@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Agrandir font-face ───────────────────────────────────────── */
+@font-face { font-family: 'Agrandir'; src: url('/fonts/Agrandir-Regular.otf'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir'; src: url('/fonts/Agrandir-TextBold.otf'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Tight'; src: url('/fonts/Agrandir-Tight.otf'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Narrow'; src: url('/fonts/Agrandir-Narrow.otf'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Grand'; src: url('/fonts/Agrandir-GrandLight.otf'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Grand'; src: url('/fonts/Agrandir-GrandHeavy.otf'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir'; src: url('/fonts/Agrandir-GrandHeavy.otf'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Tight'; src: url('/fonts/Agrandir-GrandHeavy.otf'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Wide'; src: url('/fonts/Agrandir-WideLight.otf'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Agrandir Wide'; src: url('/fonts/Agrandir-WideBlackItalic.otf'); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Agrandir Thin'; src: url('/fonts/Agrandir-ThinItalic.otf'); font-weight: 100; font-style: italic; font-display: swap; }
+
+/* ── Atlântida design tokens ──────────────────────────────────── */
+:root {
+  --brand-deep: #004f8f;
+  --brand-cyan: #0da1cc;
+  --brand-white: #ffffff;
+  --ink: #0a2740;
+
+  --blue-50:  #e7eff6;
+  --blue-500: #004f8f;
+  --blue-600: #00457e;
+  --blue-700: #003a6a;
+  --blue-900: #00213d;
+
+  --cyan-50:  #e6f6fb;
+  --cyan-500: #0da1cc;
+  --cyan-600: #0a85ab;
+
+  --sand-50:  #fbfaf6;
+  --sand-100: #f5f2ea;
+  --gray-100: #e9eef2;
+  --gray-200: #d8e0e7;
+  --gray-300: #bcc8d1;
+  --gray-500: #6a7c88;
+
+  --text-strong: var(--ink);
+  --text-body: #294156;
+  --text-muted: var(--gray-500);
+  --text-on-deep: #ffffff;
+
+  --border: #e3e9ee;
+  --border-strong: var(--gray-300);
+
+  --shadow-sm: 0 2px 6px rgba(0,79,143,0.08);
+  --shadow-md: 0 6px 20px rgba(0,79,143,0.10);
+  --shadow-lg: 0 14px 36px rgba(0,79,143,0.14);
+  --shadow-focus: 0 0 0 3px rgba(13,161,204,0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+
+  --surface:        #ffffff;
+  --surface-raised: #f5f2ea;
+
+  --font-display: 'Agrandir Tight', 'Arial Narrow', sans-serif;
+  --font-grand:   'Agrandir Grand', Agrandir, sans-serif;
+  --font-body:    Agrandir, system-ui, sans-serif;
+  --font-label:   'Agrandir Wide', Agrandir, sans-serif;
+}
+
+/* ── Dark mode overrides ──────────────────────────────────────── */
+[data-dark] {
+  --surface:        #1e1e1e;
+  --surface-raised: #252525;
+  --sand-50:        #111111;
+  --sand-100:       #1a1a1a;
+  --border:         #2e2e2e;
+  --border-strong:  #3d3d3d;
+  --text-strong:    #f0f0f0;
+  --text-body:      #b0b0b0;
+  --text-muted:     #707070;
+  --gray-100:       #222222;
+  --gray-200:       #2e2e2e;
+  --gray-300:       #3d3d3d;
+  --shadow-sm:      0 2px 6px rgba(0,0,0,0.50);
+  --shadow-md:      0 6px 20px rgba(0,0,0,0.55);
+  --shadow-focus:   0 0 0 3px rgba(13,161,204,0.40);
+}
+
+[data-dark] input,
+[data-dark] textarea,
+[data-dark] select {
+  background: #222222 !important;
+  color: var(--text-strong) !important;
+  border-color: var(--border) !important;
+}
+
+/* Headings and labels that use --ink directly */
+[data-dark] h1, [data-dark] h2, [data-dark] h3 {
+  color: var(--text-strong) !important;
+}
+
+/* Step nav background */
+[data-dark] nav, [data-dark] [role="navigation"] {
+  background: var(--surface);
+}
+
+/* Sand/raised surfaces in dark */
+[data-dark] .at-eyebrow {
+  color: var(--text-muted);
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background: var(--sand-50);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: var(--radius-pill); }
+
+/* ── Focus visible ────────────────────────────────────────────── */
+:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+
+/* ── Utilities ────────────────────────────────────────────────── */
+.at-eyebrow {
+  font-family: var(--font-label);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  color: var(--text-muted);
+}
